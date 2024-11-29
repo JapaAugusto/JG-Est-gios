@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">Editar Empresa</h1>
+        <form th:action="@{/empresas/criar}" th:object="${empresaDTO}" method="post" class="max-w-xl bg-white p-6 rounded shadow-xl">
+            <div class="mb-4">
+                <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
+                <input type="text" id="nome" name="nome" th:field="*{nome}" class="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="cnpj" class="block text-gray-700 text-sm font-bold mb-2">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj" th:field="*{cnpj}" class="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="endereco" class="block text-gray-700 text-sm font-bold mb-2">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" th:field="*{endereco}" class="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="telefone" class="block text-gray-700 text-sm font-bold mb-2">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" th:field="*{telefone}" class="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Salvar</button>
+                <a th:href="@{/empresas}" class="inline-block bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

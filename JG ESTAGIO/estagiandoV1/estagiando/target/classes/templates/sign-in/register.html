@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center; /* Centraliza o conteúdo do formulário */
+    }
+
+    .heading h2 {
+      margin: 0 0 20px;
+      color: #333;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center; /* Centraliza os itens dentro do input-group */
+    }
+
+    .input-group-addon {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn {
+      background-color: #28a745;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    .btn-cancel {
+      background-color: #dc3545;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-cancel:hover {
+      background-color: #c82333;
+    }
+
+    .error-message {
+      color: red;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="register">
+    <div class="heading">
+      <h2>Cadastro</h2>
+      <form action="/register" method="post">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn">Cadastrar</button>
+          <a href="/"><button type="button" class="btn-cancel">Cancelar</button></a>
+        </div>
+        <div class="error-message">         
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

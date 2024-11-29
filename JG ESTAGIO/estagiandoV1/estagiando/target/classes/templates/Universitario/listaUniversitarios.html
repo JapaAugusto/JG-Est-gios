@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Universitários</title>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .btn-add {
+            margin-bottom: 20px;
+        }
+        .table {
+            background-color: #fff;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn-edit {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-edit:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .btn-delete {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Universitários</h1>       
+        
+        <a th:href="@{/Universitarios/form}" class="btn btn-primary btn-add mb-3">Novo Universitário</a>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>Data de Nascimento</th>
+                    <th>CPF</th>
+                    <th>RA</th>
+                    <th>E-mail</th>
+                    <th>RG</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>                
+                <tr th:each="universitario : ${universitarios}">
+                    <td th:text="${universitario.id}"></td>
+                    <td th:text="${universitario.nome}"></td>
+                    <td th:text="${universitario.sexo}"></td>
+                    <td th:text="${universitario.dataNascimento}"></td>
+                    <td th:text="${universitario.cpf}"></td>
+                    <td th:text="${universitario.ra}"></td>
+                    <td th:text="${universitario.email}"></td>
+                    <td th:text="${universitario.rg}"></td>
+                    <td>                        
+                        <a th:href="@{/Universitarios/edit/{id}(id=${universitario.id})}" class="btn btn-sm btn-edit">Editar</a>                        
+                        <a th:href="@{/Universitarios/delete/{id}(id=${universitario.id})}" class="btn btn-sm btn-delete">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/index}" style="text-align: center; display: block; margin-top: 20px;">Voltar para a página inicial</a>
+    </div>    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

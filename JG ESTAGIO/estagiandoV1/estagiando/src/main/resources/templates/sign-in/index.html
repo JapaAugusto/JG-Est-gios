@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JG Estágios</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007BFF;
+        }
+
+        main {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 0 20px 20px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section#assuntos p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        section#assuntos article {
+            margin-top: 20px;
+        }
+
+        article h2 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        article p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        article ul {
+            padding-left: 20px;
+        }
+
+        article ul li {
+            list-style: disc;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .logo {
+            max-height: 50px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img th:src="@{/img/JG.png}" alt="Descrição da imagem" class="logo">
+        <h1>JG Estágios</h1>
+        <nav>
+            <a th:href="@{/Universitarios}">Universitários</a>
+            <a th:href="@{/estagiandos}">Estagiários</a>
+            <a th:href="@{/historicoEstagio}">Histórico</a>
+            <a th:href="@{/empresas}">Empresas</a>              
+            <a th:href="@{/about}">Sobre nós</a>
+        </nav>
+    </header>
+    <main>
+        <section id="assuntos">
+            <p>Conectando Futuros, Transformando Carreiras.</p>
+        </section>
+        <section id="assuntos">
+            <article>
+                <h2>Encontre a vaga que mudará seu futuro</h2>
+                <p>Se você é um estagiário em busca de crescimento ou uma empresa que valoriza talento,
+                    a JG Estágios está aqui para fazer a ponte entre sonhos e realidade.</p>
+                <p>Junte-se a nós nessa jornada de descobertas e conquistas!</p>
+                <ul>
+                    <li>Transparência: Agimos com honestidade e clareza em todas as etapas do processo.</li>
+                    <li>Empatia: Compreendemos as expectativas e desafios dos estagiários e das empresas.</li>
+                    <li>Inovação: Buscamos constantemente maneiras de aprimorar nossa plataforma e serviços.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>JG Estágios - CNPJ: 12.345.678/0001-90 <br>
+            Rua Fernandópolis, n 2510 - Bairro Eldorado
+        </p>
+    </footer>
+</body>
+</html>

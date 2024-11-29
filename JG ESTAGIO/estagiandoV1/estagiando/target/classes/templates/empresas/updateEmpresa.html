@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">Editar Empresa</h1>
+        <form th:action="@{/empresas/{id}/atualizar(id=${empresa.id})}" th:object="${empresa}" method="post" class="space-y-8 divide-y divide-gray-200">
+            <div class="space-y-8 divide-y divide-gray-200">
+                <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
+                    <div class="space-y-6 sm:space-y-5">
+                        <div class="sm:col-span-6">
+                            <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
+                            <input type="text" th:field="*{nome}" id="nome" name="nome" autocomplete="nome" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+
+                        <div class="sm:col-span-6">
+                            <label for="cnpj" class="block text-sm font-medium text-gray-700">CNPJ</label>
+                            <input type="text" th:field="*{cnpj}" id="cnpj" name="cnpj" autocomplete="cnpj" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+
+                        <div class="sm:col-span-6">
+                            <label for="endereco" class="block text-sm font-medium text-gray-700">Endereço</label>
+                            <input type="text" th:field="*{endereco}" id="endereco" name="endereco" autocomplete="endereco" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+
+                        <div class="sm:col-span-6">
+                            <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone</label>
+                            <input type="text" th:field="*{telefone}" id="telefone" name="telefone" autocomplete="telefone" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-5">
+                <div class="flex justify-end">
+                    <a href="/" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">Cancelar</a>
+                    <button type="submit" class="ml-3 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Salvar Alterações</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

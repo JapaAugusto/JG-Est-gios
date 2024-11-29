@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estagiandos</title>    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .add-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .edit-button, .delete-button {
+            display: inline-block;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .edit-button {
+            background-color: #4caf50;
+        }
+
+        .edit-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        .delete-button {
+            background-color: #f44336;
+        }
+
+        .delete-button:hover {
+            background-color: #e53935;
+            transform: scale(1.1);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estagiandos</h1>
+        <a th:href="@{/estagiandos/form}" class="add-button">Novo Estágio</a>        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Empresa</th>
+                    <th>Universitário</th>
+                    <th>Área de Atuação</th>
+                    <th>Carga Horária</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>            
+                <tr th:each="estagiando : ${estagiandos}">
+                    <td th:text="${estagiando.id}"></td>
+                    <td th:text="${estagiando.empresa.nome}"></td>
+                    <td>
+                        <ul>
+                            <li th:each="universitario : ${estagiando.universitarios}" th:text="${universitario.nome}">Universitário</li>
+                        </ul>
+                    </td>
+                    <td th:text="${estagiando.areaAtuacao}"></td>
+                    <td th:text="${estagiando.cargaHoraria}"></td>
+                    <td class="actions">
+                        <a th:href="@{/estagiandos/edit/{id}(id=${estagiando.id})}" class="edit-button">Editar</a>
+                        <a th:href="@{/estagiandos/delete/{id}(id=${estagiando.id})}" class="delete-button">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/index}" class="back-link">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>
